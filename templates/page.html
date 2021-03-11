@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <header>
+        <nav>
+            <brand onclick="redirect('/')"/>
+            <img src="{{ resize_image(path='../static/img/me.png', width=50, height=50, op='fill') }}"/>
+            <b>{{ config.title }}</b>
+        </brand>
+    </nav>
+</header>
+<main>
+    {% if page.translations | length > 1 %}
+    {% set num_languages = page.translations | length - 1 %}
+    <small>Other language{{ num_languages | pluralize }}:</small>
+    <chips class="inline">
+        {% for l in page.translations %}
+            {% if l.lang != lang %}
+                <span class="lang" onclick="redirect('{{ l.permalink }}')">{{ l.lang }}</span>
+            {% endif %}
+        {% endfor %}
+    </chips><br><br>
+    {% endif %}
+    <h1>{{ page.title }}</h1>
+    <chips>
+        {% if page.taxonomies.tags and page.taxonomies.tags | length > 0 %}
+            {% for tag in page.taxonomies.tags %}
+                <span class="tag">{{ tag }}</span>
+            {% endfor %}
+        {% endif %}
+    </chips><br>
+    {{ page.content | safe }}
+</main>
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <header>
+        <nav>
+            <brand onclick="redirect('/')"/>
+                <img src="{{ resize_image(path='../static/img/me.png', width=50, height=50, op='fill') }}"/>
+                <b>{{ config.title }}</b>
+            </brand>
+        </nav>
+    </header>
+    <error>
+        <error-code>404</error-code>
+        <error-message>did I or you made a mistake?</error-message>
+        <a href="/">Go home</a>
+    </error>
+{% endblock content %}

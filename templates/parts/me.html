@@ -1,0 +1,14 @@
+<me>
+{% block me %}
+    <img src="{{ resize_image(path='../static/img/me.png', width=512, height=512, op='fill') }}">
+    <h2>{{ config.extra.author }}</h2>
+    <p>
+        student - making tech<br>
+        µControllers<br>
+        programming
+    </p>
+    <links>
+        <a href="https://github.com/{{ config.extra.github }}">GitHub</a> &oslash; <a href="https://twitter.com/@{{ config.extra.twitter }}">Twitter</a>
+    </links>
+{% endblock %}
+</me>
