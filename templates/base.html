@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="{{ lang }}">
+    <head>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=JetBrains+Mono:wght@300;800&display=swap" rel="stylesheet">
+
+        {% block css %}
+            <link href="{{ get_url(path='style.css', trailing_slash=false) | safe }}" rel="stylesheet"/>
+        {% endblock css %}
+        <title>Hello, world!</title>
+    </head>
+    <body>
+        {% block content %}
+            <p>please fill this with a template</p>
+        {% endblock content %}
+        <footer>
+            <p>&copy; Copyright {{ now() | date(format="%Y") }}, {{ config.extra.author }}</p><br>
+        </footer>
+    </body>
+
+    {% block js %}
+        <script src="{{ get_url(path='js/script.js', trailing_slash=false) | safe }}"/></script>
+    {% endblock js %}
+</html>

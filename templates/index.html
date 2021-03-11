@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if not config.extra.show_me %}
+        <header>
+            <nav>
+                <brand onclick="redirect('/')">
+                    <img src="{{ resize_image(path='@/img/me.png', width=50, height=50, op='fill') }}">
+                    <b>{{ config.title }}</b>
+                </brand>
+            </nav>
+        </header>
+    {% endif %}
+        <main>
+            {% if config.extra.show_me %}
+                {% include "parts/me.html" %}
+            {% endif %}
+            {% for page in section.pages %}
+            <article onclick="redirect('{{ page.permalink }}')">
+                <h3>{{ page.title }}</h3>
+                <date>{{ page.date }}</date>
+                <p>{{ page.description }}</p>
+                <chips>
+                    {% if page.translations | length > 1 %}
+                        {% for l in page.translations %}
+                            <span class="lang">{{ l.lang }}</span>
+                        {% endfor %}
+                    {% endif %}
+                    {% if page.taxonomies.tags and page.taxonomies.tags | length > 0 %}
+                        {% for tag in page.taxonomies.tags %}
+                            <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </chips>
+            </article>
+            {% endfor %}
+        </main>
+{% endblock content %}

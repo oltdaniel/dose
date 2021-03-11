@@ -1,0 +1,188 @@
+// variables
+$text_muted: #686868
+$text_default: #212121
+
+// helpers
+@mixin monospace
+    font-family: 'JetBrains Mono', monospace
+    font-weight: 300
+
+@mixin cursive
+    font-family: 'Abril Fatface', cursive
+    font-weight: 400
+
+@mixin max_width($width)
+    max-width: $width
+    margin: 0 auto
+    width: 90%
+
+// reset
+*
+    padding: 0
+    margin: 0
+
+    @include monospace
+    color: $text_default
+    box-sizing: border-box
+
+html
+    padding: 10px
+    height: 100%
+
+body
+    margin: 40px 0
+
+// bold
+b, strong
+    font-weight: 800
+
+// heading
+h1, h2, h3, h4, h5, h6
+    @include cursive
+
+h1
+    font-size: 2rem
+h2
+    font-size: 1.5rem
+h3
+    font-size: 1.17rem
+h4
+    font-size: 1.12rem
+h5
+    font-size: .83rem
+h6
+    font-size: .75rem
+
+// misc
+hr
+    max-width: 75%
+    margin: 15px auto
+    width: 80%
+    border: none
+    height: 1px
+    background: $text_muted
+
+.chip
+    background: rgba($text_default, 0.2)
+    padding: 2px 10px
+    border-radius: 1rem
+    cursor: pointer
+    transition: background .3s ease
+
+    &:hover
+        background: rgba($text_default, 0.4)
+
+// navigation
+nav
+    @include max_width(750px)
+    text-align: center
+
+    brand
+        cursor: pointer
+        *
+            vertical-align: middle
+        & > b
+            @include cursive
+            font-size: 2rem
+
+main
+    @include max_width(500px)
+
+    margin: 30px auto
+
+footer
+    @include max_width(750px)
+    margin-top: 40px
+    padding-bottom: 70px
+    text-align: center
+    *
+        color: $text_muted
+
+// article
+article
+    display: block
+    margin: 20px 0
+    cursor: pointer
+    position: relative
+
+    &:hover
+        h3
+            text-decoration-color: blue
+    h3
+        display: inline-block
+        text-decoration: underline
+        text-decoration-color: white
+        transition: text-decoration-color .3s ease
+
+    date
+        font-size: 0.8rem
+        margin-left: 40px
+        position: absolute
+        right: 0
+        top: 5px
+        color: $text_muted
+        vertical-align: middle
+
+    p
+        padding: 5px
+        font-size: 0.8rem
+        text-align: justify
+
+chips
+    display: block
+
+    &.inline
+        display: inline-block
+
+    span
+        font-size: 0.8rem
+        background: rgba($text_default, 0.2)
+        padding: 2px 10px
+        border-radius: 1rem
+
+        &.lang
+            background-color: rgba(blue, 0.2)
+
+            &[onclick]
+                cursor: pointer
+
+        &.tag
+            background-color: rgba(orange, 0.2)
+
+// me
+me
+    display: block
+    margin-bottom: 40px
+
+    img
+        display: block
+        @include max_width(256px)
+
+    h2
+        display: block
+        text-align: center
+
+    p
+        text-align: justify
+        @include max_width(350px)
+        line-height: 1.8rem
+        margin: 20px auto
+
+    links
+        display: block
+        text-align: center
+
+// error
+error
+    display: block
+    padding: 60px 0
+    @include max_width(500px)
+    text-align: center
+
+    error-code
+        @include cursive
+        font-size: 3rem
+
+    *
+        display: block
+        margin-bottom: 20px

@@ -1,0 +1,29 @@
+title = "oltd"
+
+# The URL the site will be built for
+base_url = "https://oltd.github.io/dose"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+languages = [
+    {code = "de"}
+]
+
+taxomonies = [
+    {name = "tags"}
+]
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = false
+
+[extra]
+author = "oltd"
+github = "oltd"
+twitter = "oltd_maker"
+show_me = true
