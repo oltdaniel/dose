@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% set sort_by = "date" %}
+
 {% block content %}
     {% if not config.extra.show_me %}
         <header>
@@ -13,12 +15,14 @@
     {% endif %}
         <main>
             {% if config.extra.show_me %}
+            <me>
                 {% include "parts/me.html" %}
+            </me>
             {% endif %}
             {% for page in section.pages %}
             <article onclick="redirect('{{ page.permalink }}')">
                 <h3>{{ page.title }}</h3>
-                <date>{{ page.date }}</date>
+                <time>{{ page.date }}</time>
                 <p>{{ page.description }}</p>
                 <chips>
                     {% if page.translations | length > 1 %}
