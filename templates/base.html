@@ -5,13 +5,25 @@
         <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
         <meta content="width=device-width, initial-scale=1" name="viewport"/>
 
+        {% block site_meta %}
+        <meta name="robots" content="index,follow">
+        <meta name="googlebot" content="index,follow">
+
+        <meta name="google" content="nositelinkssearchbox">
+        <meta name="google" content="notranslate">
+        {% endblock site_meta %}
+
+        {% block page_meta %}
+        <meta name="description" content="{{ config.description | default(value='') | truncate(length=150) }}">
+        {% endblock page_meta %}
+
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=JetBrains+Mono:wght@300;800&display=swap" rel="stylesheet">
 
         {% block css %}
             <link href="{{ get_url(path='style.css', trailing_slash=false) | safe }}" rel="stylesheet"/>
         {% endblock css %}
-        <title>Hello, world!</title>
+        <title>{% block title %}{{ config.title }}{% endblock title%}</title>
     </head>
     <body>
         {% block content %}

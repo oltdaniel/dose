@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 
+{% block title %}
+{{ page.title }} - {{ config.title }}
+{% endblock %}
+
+{% block page_meta %}
+<meta name="description" content="{{ page.description | safe | default(value='') | truncate(length=150) }}">
+{% endblock page_meta %}
+
 {% block content %}
     <header>
         <nav>
@@ -9,7 +17,7 @@
         </brand>
     </nav>
 </header>
-<main>
+<main class="article-page">
     {% if page.translations | length > 1 %}
     {% set num_languages = page.translations | length - 1 %}
     <small>Other language{{ num_languages | pluralize }}:</small>
