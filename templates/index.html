@@ -1,30 +1,21 @@
 {% extends "base.html" %}
 
-{% set sort_by = "date" %}
-
 {% block content %}
-    {% if not config.extra.show_me %}
-        <header>
-            <nav>
-                <brand onclick="redirect('/')">
-                    <img src="{{ resize_image(path='@/img/me.png', width=50, height=50, op='fill') }}">
-                    <b>{{ config.title }}</b>
-                </brand>
-            </nav>
-        </header>
-    {% endif %}
-        <main>
-            {% if config.extra.show_me %}
-            <me>
-                {% include "parts/me.html" %}
-            </me>
-            {% endif %}
-            {% for page in section.pages %}
-            <article onclick="redirect('{{ page.permalink }}')">
+    <header>
+        {% include "parts/me.html" %}
+    </header>
+    <main>
+        {% if lang != config.default_language %}
+        <blockquote>
+        <b>INFO:</b> This is not the default language. There may be articles that are not translated. You can switch back to the default language <a href="/">here</a>.
+        </blockquote>
+        {% endif %}
+        {% for page in section.pages %}
+            <article onclick="redirect('{{ page.permalink | safe }}')">
                 <h3>{{ page.title }}</h3>
                 <time>{{ page.date }}</time>
                 <p>{{ page.description }}</p>
-                <chips>
+                <div class="chips">
                     {% if page.translations | length > 1 %}
                         {% for l in page.translations %}
                             <span class="lang">{{ l.lang }}</span>
@@ -35,8 +26,11 @@
                             <span class="tag">{{ tag }}</span>
                         {% endfor %}
                     {% endif %}
-                </chips>
+                </div>
             </article>
-            {% endfor %}
-        </main>
+            {% if not loop.last %}
+                <hr />
+            {% endif %}
+        {% endfor %}
+    </main>
 {% endblock content %}

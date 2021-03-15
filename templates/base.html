@@ -17,9 +17,6 @@
         <meta name="description" content="{{ config.description | default(value='') | truncate(length=150) }}">
         {% endblock page_meta %}
 
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=JetBrains+Mono:wght@300;800&display=swap" rel="stylesheet">
-
         {% block css %}
             <link href="{{ get_url(path='style.css', trailing_slash=false) | safe }}" rel="stylesheet"/>
         {% endblock css %}
@@ -30,7 +27,14 @@
             <p>please fill this with a template</p>
         {% endblock content %}
         <footer>
-            <p>&copy; Copyright {{ now() | date(format="%Y") }}, {{ config.extra.author }}</p><br>
+            <hr text="&copy; Copyright {{ now() | date(format='%Y') }}" />
+            {% if config.extra.social_media and config.extra.social_media | length > 0 %}
+            <div class="footer-social-media">
+                {% for social in config.extra.social_media %}
+                    <a href="{{ social.url | safe }}" target="_blank">{{ social.name }}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
         </footer>
     </body>
 
