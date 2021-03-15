@@ -29,28 +29,18 @@ And the theme uses the following extras:
 
 ```toml
 [extra]
-author = "oltd" # just the name for e.g. the footer
-github = "oltd" # your github username
-twitter = "oltd_maker" # your twitter username
-show_me = true # whether to show this huge me element or not (index only)
+social_media = [
+    {name = "GitHub", url = "https://github.com/oltd"},
+    {name = "Twitter", url = "https://twitter.com/@oltd_maker"},
+]
 ```
 
-Override the me element by creating your own template in `myblog/templates/parts/me.html`:
+The description of yourself with your image, you can modify by using a template. Just create a new
+file `myblog/parts/me.html`:
 
 ```html
-<img
-  src="{{ resize_image(path='@/img/me.png', width=512, height=512, op='fill') }}"
-/>
-<h2>{{ config.extra.author }}</h2>
-<p>
-  student - making tech<br />
-  µControllers<br />
-  programming
-</p>
-<links>
-  <a href="https://github.com/{{ config.extra.github }}">GitHub</a> &oslash;
-  <a href="https://twitter.com/@{{ config.extra.twitter }}">Twitter</a>
-</links>
+<img src="https://via.placeholder.com/50" height="50px" width="50px">
+<p>Hi, this is me. I write about microcontrollers, programming and cloud software. ...</p>
 ```
 
 If you want to have all pages sorted by their date, please create `myblog/content/_index.md`:
@@ -62,15 +52,33 @@ sort_by = "date"
 
 ### About
 
-This theme is just for my personal site, but feel free to use it. I've written the CSS by my own (even though my CSS is a bit rusty). But this results in a fast loading page. The profile images are resized by zola. For typography I used [`Abril Fatfac, 400 Regular`](https://fonts.google.com/specimen/Abril+Fatface) for the headings, and [`JetBrains Mono, 300 Light, 800 Extra-bold`](https://fonts.google.com/specimen/JetBrains+Mono) for the regular text. I will extend the use of SASS variables in the future, to make it even easier to customize or remix it.
+#### Inspired
+I created this theme mainly for my personal website. You are free to use it or modify it. It is inspired by the [`no-style-please`](https://riggraz.dev/no-style-please/) jekyll theme.
+
+#### Typography
+
+This theme uses no special font, just the browsers default monospace font. Yes, this can mean that the website could be rendered differently, but users can freely choose their webfont.
+
+#### Darkmode
+
+This theme supports dark and light mode. Currently this will be only switched based on the users preffered system theme. But a manual switch will follow in the future in the footer (see the todo).
+
+| light | dark |
+|-|-|
+| ![](screenshot-light.png) | ![](screenshot-dark.png) |
+
+#### Size
+
+We need about `2kB` extra stuff aside from images and raw html. This is divided up to `1.7kB CSS` and `~300B JS`.
+
+#### Syntax Highlighting
+
+As I didn't want to invest any time in creating an own syntax color schema for this theme, I suggest to use `visual-studio-dark`, which is the same one used in the demo page.
 
 ### TODO
 
-- [ ] blog content styling
-- [x] basic SEO
-- [ ] customizable personal links/logos
-- [ ] more sass variables for customizing
-- [ ] use [Schema.org](https://schema.org) structure
+- [ ] introduce sass variables for colors
+- [ ] dark/light switch with javascript and store in browser session
 
 ## License
 

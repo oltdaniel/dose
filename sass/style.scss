@@ -1,0 +1,193 @@
+@mixin darkmode {
+  filter: invert(1);
+  img {
+    filter: invert(1);
+  }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: monospace;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  margin: 0;
+  min-height: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @include darkmode;
+  }
+}
+
+body[darkmode] {
+  @include darkmode;
+}
+
+html,
+body {
+  background: white;
+}
+
+header {
+  padding: 2rem 0;
+  margin: 0 auto;
+  max-width: 750px;
+  width: 95%;
+
+  img {
+    border-radius: 50%;
+  }
+}
+
+main {
+  padding: 2rem 0;
+  margin: 0 auto;
+  max-width: 960px;
+  width: 95%;
+}
+
+hr {
+  text-align: center;
+  border: 0;
+
+  &:before {
+    content: "//////";
+  }
+  &:after {
+    content: "//////";
+  }
+  &[text]:after {
+    content: " " attr(text) " //////";
+  }
+}
+
+blockquote {
+  color: rgba(black, 0.7);
+  border-left: 2px solid rgba(black, 0.7);
+  padding: 0 1rem;
+  margin: 2rem 0;
+}
+
+.footer-social-media {
+  a {
+    &:after {
+      content: " \00D8 ";
+      display:inline-block;
+      margin-left: 10px;
+      color: black;
+    }
+    &:last-child:after {
+      display: none;
+    }
+  }
+}
+
+.chips {
+  span {
+    background: black;
+    padding: 3px 10px;
+    border-radius: 1.4rem;
+    color: white;
+
+    &.tag {
+      background-color: rgba(green, 0.8);
+    }
+
+    &.lang {
+      cursor: pointer;
+      background-color: rgba(red, 0.8);
+    }
+  }
+
+  &.chips-inline {
+    display: inline-block;
+    span {
+      padding: 1px 8px;
+    }
+  }
+}
+
+article {
+  cursor: pointer;
+  position: relative;
+
+  h3 {
+    text-decoration: underline;
+    text-decoration-color: white;
+    text-decoration-thickness: 3px;
+    transition: text-decoration-color .3s ease;
+  }
+
+  &:hover {
+    h3 {
+      text-decoration-color: blue;
+    }
+  }
+
+  time {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    color: rgba(black, 0.7);
+  }
+
+  .chips span.lang {
+    cursor: default;
+  }
+}
+
+main.article-content {
+  position: relative;
+  p {
+    text-align: justify;
+  }
+
+  img {
+    display: block;
+    max-width: 90%;
+    margin: 1rem auto;
+    max-height: 80vh;
+
+    & + em {
+      color: rgba(black, 0.7);
+      text-align: center;
+      display: block;
+    }
+  }
+
+  code {
+    background: black;
+    color: white;
+    padding: 1px 8px;
+  }
+
+  pre {
+    background: black !important;
+    color: white;
+    padding: 1rem;
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+
+  .footnote-definition {
+    padding: 0 1rem;
+    &:target {
+      background: yellow;
+      color: black;
+    }
+    p {
+      display: inline-block;
+    }
+  }
+}
+
+footer {
+  padding: 1rem 0;
+  margin: 0 auto;
+  max-width: 540px;
+  text-align: center;
+}
