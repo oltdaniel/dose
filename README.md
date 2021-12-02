@@ -8,7 +8,7 @@ First download this theme to your `themes` directory:
 
 ```bash
 cd themes
-git clone https://github.com/oltd/dose.git
+git clone https://github.com/oltdaniel/dose.git
 ```
 
 and then enable it in your `config.toml`:
@@ -30,8 +30,8 @@ And the theme uses the following extras:
 ```toml
 [extra]
 social_media = [
-    {name = "GitHub", url = "https://github.com/oltd"},
-    {name = "Twitter", url = "https://twitter.com/@oltd_maker"},
+    {name = "GitHub", url = "https://github.com/oltdaniel"},
+    {name = "Twitter", url = "https://twitter.com/@twitter"},
 ]
 ```
 
@@ -82,4 +82,4 @@ As I didn't want to invest any time in creating an own syntax color schema for t
 
 ## License
 
-![GitHub](https://img.shields.io/github/license/oltd/dose)
+![GitHub](https://img.shields.io/github/license/oltdaniel/dose)

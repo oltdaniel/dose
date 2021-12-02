@@ -1,7 +1,7 @@
-title = "oltd"
+title = "oltdaniel"
 
 # The URL the site will be built for
-base_url = "https://oltd.github.io/dose"
+base_url = "https://oltdaniel.github.io/dose"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -25,6 +25,6 @@ highlight_theme = "visual-studio-dark"
 
 [extra]
 social_media = [
-    {name = "GitHub", url = "https://github.com/oltd"},
-    {name = "Twitter", url = "https://twitter.com/@oltd_maker"},
+    {name = "GitHub", url = "https://github.com/oltdaniel"},
+    {name = "Twitter", url = "https://twitter.com/@twitter"},
 ]
