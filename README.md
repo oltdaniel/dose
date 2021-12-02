@@ -69,15 +69,34 @@ This theme supports dark and light mode. Currently this will be only switched ba
 
 #### Size
 
-We need about `2kB` extra stuff aside from images and raw html. This is divided up to `1.7kB CSS` and `~300B JS`.
+We need about `~2.3KiB` extra stuff aside from images and raw html. This is divided up to `~2.1KiB CSS` and `212B JS`.
+
+Test yourself with `zola build 1>/dev/null; echo "scale=2; $(cat public/**/*.{js,css} | wc -c)/1024" | bc -l`.
 
 #### Syntax Highlighting
 
 As I didn't want to invest any time in creating an own syntax color schema for this theme, I suggest to use `visual-studio-dark`, which is the same one used in the demo page.
 
+#### Customization
+
+You can create your own version of this theme, by simply changing the sass variables in `sass/style.scss` to match your taste.
+
+```scss
+/**
+ * Variables
+ */
+$base-background: white;
+$text-color: black;
+$article-tag: green;
+$lang-tag: red;
+$link-color: blue;
+$target-color: yellow;
+$separator-decoration: "//////";
+```
+
 ### TODO
 
-- [ ] introduce sass variables for colors
+- [x] introduce sass variables for colors
 - [ ] dark/light switch with javascript and store in browser session
 
 ## License

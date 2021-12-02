@@ -1,3 +1,17 @@
+/**
+ * Variables
+ */
+$base-background: white;
+$text-color: black;
+$article-tag: green;
+$lang-tag: red;
+$link-color: blue;
+$target-color: yellow;
+$separator-decoration: "//////";
+
+/**
+ * Mixins
+ */
 @mixin darkmode {
   filter: invert(1);
   img {
@@ -5,6 +19,9 @@
   }
 }
 
+/**
+ * Style
+ */
 html {
   height: 100%;
 }
@@ -29,7 +46,7 @@ body[darkmode] {
 
 html,
 body {
-  background: white;
+  background: $base-background;
 }
 
 header {
@@ -55,19 +72,23 @@ hr {
   border: 0;
 
   &:before {
-    content: "//////";
+    content: $separator-decoration;
   }
   &:after {
-    content: "//////";
+    content: $separator-decoration;
   }
   &[text]:after {
-    content: " " attr(text) " //////";
+    content: " " attr(text) " " $separator-decoration;
   }
 }
 
+a {
+  color: $link-color;
+}
+
 blockquote {
-  color: rgba(black, 0.7);
-  border-left: 2px solid rgba(black, 0.7);
+  color: rgba($text-color, 0.7);
+  border-left: 2px solid rgba($text-color, 0.7);
   padding: 0 1rem;
   margin: 2rem 0;
 }
@@ -78,7 +99,7 @@ blockquote {
       content: " \00D8 ";
       display:inline-block;
       margin-left: 10px;
-      color: black;
+      color: $text-color;
     }
     &:last-child:after {
       display: none;
@@ -88,18 +109,18 @@ blockquote {
 
 .chips {
   span {
-    background: black;
+    background: $text-color;
     padding: 3px 10px;
     border-radius: 1.4rem;
-    color: white;
+    color: $base-background;
 
     &.tag {
-      background-color: rgba(green, 0.8);
+      background-color: rgba($article-tag, 0.8);
     }
 
     &.lang {
       cursor: pointer;
-      background-color: rgba(red, 0.8);
+      background-color: rgba($lang-tag, 0.8);
     }
   }
 
@@ -117,14 +138,14 @@ article {
 
   h3 {
     text-decoration: underline;
-    text-decoration-color: white;
+    text-decoration-color: $base-background;
     text-decoration-thickness: 3px;
     transition: text-decoration-color .3s ease;
   }
 
   &:hover {
     h3 {
-      text-decoration-color: blue;
+      text-decoration-color: $link-color;
     }
   }
 
@@ -132,7 +153,7 @@ article {
     position: absolute;
     top: 2px;
     right: 0;
-    color: rgba(black, 0.7);
+    color: rgba($text-color, 0.7);
   }
 
   .chips span.lang {
@@ -153,21 +174,21 @@ main.article-content {
     max-height: 80vh;
 
     & + em {
-      color: rgba(black, 0.7);
+      color: rgba($text-color, 0.7);
       text-align: center;
       display: block;
     }
   }
 
   code {
-    background: black;
-    color: white;
+    background: $text-color;
+    color: $base-background;
     padding: 1px 8px;
   }
 
   pre {
-    background: black !important;
-    color: white;
+    background: $text-color !important;
+    color: $base-background;
     padding: 1rem;
     overflow-x: auto;
     overflow-y: visible;
@@ -176,8 +197,8 @@ main.article-content {
   .footnote-definition {
     padding: 0 1rem;
     &:target {
-      background: yellow;
-      color: black;
+      background: $target-color;
+      color: $text-color;
     }
     p {
       display: inline-block;
