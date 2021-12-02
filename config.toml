@@ -9,13 +9,12 @@ compile_sass = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 
-languages = [
-    {code = "de"}
-]
-
 taxomonies = [
     {name = "tags"}
 ]
+
+[languages.de]
+# No specific translations
 
 [markdown]
 # Whether to do syntax highlighting
