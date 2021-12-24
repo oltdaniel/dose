@@ -30,6 +30,10 @@ And some code:
 
 ```html
 <p>hello <b>world</b></p>
+
+<div>
+    <p>Example</p>
+</div>
 ```
 
 ---

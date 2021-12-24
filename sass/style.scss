@@ -2,10 +2,10 @@
  * Variables
  */
 $base-background: white;
-$text-color: black;
+$text-color: #212121;
 $article-tag: green;
 $lang-tag: red;
-$link-color: blue;
+$link-color: #2962FF;
 $target-color: yellow;
 $separator-decoration: "//////";
 
@@ -13,9 +13,24 @@ $separator-decoration: "//////";
  * Mixins
  */
 @mixin darkmode {
-  filter: invert(1);
-  img {
-    filter: invert(1);
+  background: $text-color !important;
+  color: $base-background !important;
+
+  blockquote {
+    color: rgba($base-background, 0.7);
+    border-color: rgba($base-background, 0.7);
+  }
+
+  a {
+    color: $link-color;
+  }
+
+  code {
+    background-color: rgba($base-background, 0.2) !important;
+  }
+
+  pre code {
+    background-color: inherit !important;
   }
 }
 

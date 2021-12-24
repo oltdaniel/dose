@@ -18,7 +18,7 @@
         {% endblock page_meta %}
 
         {% block css %}
-            <link href="{{ get_url(path='style.css', trailing_slash=false) | safe }}" rel="stylesheet"/>
+        <link href="{{ get_url(path='style.css', trailing_slash=false) | safe }}" rel="stylesheet"/>
         {% endblock css %}
         <title>{% block title %}{{ config.title }}{% endblock title%}</title>
     </head>
