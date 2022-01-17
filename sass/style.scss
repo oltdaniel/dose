@@ -32,6 +32,10 @@ $separator-decoration: "//////";
   pre code {
     background-color: inherit !important;
   }
+
+  time {
+    color: rgba($base-background, 0.7) !important;
+  }
 }
 
 /**
