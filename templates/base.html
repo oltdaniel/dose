@@ -23,6 +23,18 @@
         <title>{% block title %}{{ config.title }}{% endblock title%}</title>
     </head>
     <body>
+        <script>
+            function evaluate_prefers_color() {
+                if(localStorage.getItem('prefers-color') === 'dark') {
+                    document.body.classList.add('dark');
+                } else if(localStorage.getItem('prefers-color') === 'light') {
+                    document.body.classList.remove('dark');
+                } else if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.body.classList.add('dark');
+                }
+            }
+            evaluate_prefers_color();
+        </script>
         {% block content %}
             <p>please fill this with a template</p>
         {% endblock content %}
@@ -30,6 +42,7 @@
             <hr text="&copy; Copyright {{ now() | date(format='%Y') }}" />
             {% if config.extra.social_media and config.extra.social_media | length > 0 %}
             <div class="footer-social-media">
+                <a onclick="toggle_prefers_color()">Toggle Theme</a>
                 {% for social in config.extra.social_media %}
                     <a href="{{ social.url | safe }}" target="_blank">{{ social.name }}</a>
                 {% endfor %}

@@ -97,7 +97,7 @@ $separator-decoration: "//////";
 ### TODO
 
 - [x] introduce sass variables for colors
-- [ ] dark/light switch with javascript and store in browser session
+- [x] dark/light switch with javascript and store in browser local storage
 
 ## License
 

@@ -36,6 +36,14 @@ $separator-decoration: "//////";
   time {
     color: rgba($base-background, 0.7) !important;
   }
+
+  .footer-social-media {
+    a {
+      &:after {
+        color: rgba($base-background, 0.7) !important;
+      }
+    }
+  }
 }
 
 /**
@@ -53,10 +61,8 @@ body {
   min-height: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    @include darkmode;
-  }
+body.dark {
+  @include darkmode;
 }
 
 body[darkmode] {
@@ -103,6 +109,7 @@ hr {
 
 a {
   color: $link-color;
+  text-decoration: underline;
 }
 
 blockquote {
@@ -118,7 +125,7 @@ blockquote {
       content: " \00D8 ";
       display:inline-block;
       margin-left: 10px;
-      color: $text-color;
+      color: rgba($text-color, 0.7);
     }
     &:last-child:after {
       display: none;
@@ -157,7 +164,6 @@ article {
 
   h3 {
     text-decoration: underline;
-    text-decoration-color: $base-background;
     text-decoration-thickness: 3px;
     transition: text-decoration-color .3s ease;
   }
