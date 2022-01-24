@@ -14,7 +14,9 @@
         {% endblock site_meta %}
 
         {% block page_meta %}
-        <meta name="description" content="{{ config.description | default(value='') | truncate(length=150) }}">
+        {% if config.description %}
+        <meta name="description" content="{{ config.description | truncate(length=150) }}">
+        {% endif %}
         {% endblock page_meta %}
 
         {% block css %}
