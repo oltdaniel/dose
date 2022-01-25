@@ -36,7 +36,7 @@ social_media = [
 ```
 
 The description of yourself with your image, you can modify by using a template. Just create a new
-file `myblog/parts/me.html`:
+file `myblog/templates/parts/me.html`:
 
 ```html
 <img src="https://via.placeholder.com/50" height="50px" width="50px">
