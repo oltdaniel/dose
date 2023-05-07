@@ -19,7 +19,7 @@ and then enable it in your `config.toml`:
 theme = "dose"
 ```
 
-The following taxonomies are enabled (for default `en` and `de`):
+You can enable the following taxonomies:
 
 ```toml
 taxonomies = [
@@ -40,7 +40,7 @@ default_theme = "dark" # or "light"
 ```
 
 The description of yourself with your image, you can modify by using a template. Just create a new
-file `myblog/parts/me.html`:
+file `myblog/templates/parts/me.html`:
 
 ```html
 <img src="https://via.placeholder.com/50" height="50px" width="50px">
@@ -74,12 +74,12 @@ This theme supports dark and light mode. Currently this will be only switched ba
 #### Size
 
 The JavaScript has been moved into the page itself to allow minification. Together this results in the following sizes for the `index.html`:
-- `2.91kB` JavaScript
-- `3.04kB` CSS
-- `16.7kB` Profile Image
-- `4.67kB - 2.91kB = 1.76kB` HTML
+- `~ 3kB` JavaScript
+- `~ 3kB` CSS
+- `~ 17kB` Profile Image
+- `~5kB - ~3kB = ~2kB` HTML
 
-Which results in a total loading size of `2.91kB + 3.04kB + 16.7kB + 1.76kB = 24.41kB`.
+Which results in a total loading size of `3kB + 3kB + 17kB + 2kB = 25kB`.
 
 #### Syntax Highlighting
 

@@ -9,25 +9,19 @@ compile_sass = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 
-# Default English language
-[languages.en]
+# Explicitly set default language
+default_language = "en"
+
+# Enable taxonomies in default language
 taxonomies = [
-    { name = "tags", feed = true }
+    { name = "tags" }
 ]
 
-[languages.en.translations]
-tags = "Tags"
-toggle_theme = "Toggle Theme"
-
-# German language
 [languages.de]
+# Enable taxonomies in german language
 taxonomies = [
-    { name = "tags", feed = true }
+    { name = "tags" }
 ]
-
-[languages.de.translations]
-tags = "Tags"
-toggle_theme = "Thema umschalten"
 
 [markdown]
 # Whether to do syntax highlighting
