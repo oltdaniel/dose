@@ -44,6 +44,10 @@ $separator-decoration: "//////";
       }
     }
   }
+
+  #toggle-theme {
+    fill: $base-background;
+  }
 }
 
 /**
@@ -124,7 +128,7 @@ blockquote {
     &:after {
       content: " \00D8 ";
       display:inline-block;
-      margin-left: 10px;
+      margin: 0 10px;
       color: rgba($text-color, 0.7);
     }
     &:last-child:after {
@@ -139,9 +143,14 @@ blockquote {
     padding: 3px 10px;
     border-radius: 1.4rem;
     color: $base-background;
+    margin: 0 3px;
 
     &.tag {
       background-color: rgba($article-tag, 0.8);
+
+      &::before {
+        content: '#';
+      }
     }
 
     &.lang {
@@ -236,4 +245,15 @@ footer {
   margin: 0 auto;
   max-width: 540px;
   text-align: center;
+}
+
+#toggle-theme {
+  fill: $text-color;
+  cursor: pointer;
+
+  svg {
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
+  }
 }

@@ -17,11 +17,11 @@ and then enable it in your `config.toml`:
 theme = "dose"
 ```
 
-The following taxonomies are enabled:
+The following taxonomies are enabled (for default `en` and `de`):
 
 ```toml
 taxonomies = [
-    {name = "tags"},
+    { name = "tags", feed = true },
 ]
 ```
 
@@ -30,9 +30,11 @@ And the theme uses the following extras:
 ```toml
 [extra]
 social_media = [
-    {name = "GitHub", url = "https://github.com/oltdaniel"},
-    {name = "Twitter", url = "https://twitter.com/@twitter"},
+    { name = "GitHub", url = "https://github.com/oltdaniel" },
+    { name = "Twitter", url = "https://twitter.com/@twitter" },
+    { name = "Mastodon", url = "https://mastodon.social/@Mastodon", rel = "me" }
 ]
+default_theme = "dark" # or "light"
 ```
 
 The description of yourself with your image, you can modify by using a template. Just create a new
@@ -69,9 +71,13 @@ This theme supports dark and light mode. Currently this will be only switched ba
 
 #### Size
 
-We need about `~2.3KiB` extra stuff aside from images and raw html. This is divided up to `~2.1KiB CSS` and `212B JS`.
+The JavaScript has been moved into the page itself to allow minification. Together this results in the following sizes for the `index.html`:
+- `2.91kB` JavaScript
+- `3.04kB` CSS
+- `16.7kB` Profile Image
+- `4.67kB - 2.91kB = 1.76kB` HTML
 
-Test yourself with `zola build 1>/dev/null; echo "scale=2; $(cat public/**/*.{js,css} | wc -c)/1024" | bc -l`.
+Which results in a total loading size of `2.91kB + 3.04kB + 16.7kB + 1.76kB = 24.41kB`.
 
 #### Syntax Highlighting
 
@@ -94,11 +100,8 @@ $target-color: yellow;
 $separator-decoration: "//////";
 ```
 
-### TODO
-
-- [x] introduce sass variables for colors
-- [x] dark/light switch with javascript and store in browser local storage
-
-## License
+## License & Contributors
 
 ![GitHub](https://img.shields.io/github/license/oltdaniel/dose)
+
+This project was created by [Daniel Oltmanns](https://github.com/oltdaniel) and has been imporved by these [contributors](https://github.com/oltdaniel/dose/graphs/contributors).
