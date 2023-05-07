@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://oltdaniel.github.io/dose/sitemap.xml

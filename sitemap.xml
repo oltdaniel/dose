@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://oltdaniel.github.io/dose/</loc>
+    </url>
+    <url>
+        <loc>https://oltdaniel.github.io/dose/de/</loc>
+    </url>
+    <url>
+        <loc>https://oltdaniel.github.io/dose/de/hello-world/</loc>
+        <lastmod>2020-03-11</lastmod>
+    </url>
+    <url>
+        <loc>https://oltdaniel.github.io/dose/demo/</loc>
+        <lastmod>2020-03-15</lastmod>
+    </url>
+    <url>
+        <loc>https://oltdaniel.github.io/dose/hello-world/</loc>
+        <lastmod>2020-03-11</lastmod>
+    </url>
+    <url>
+        <loc>https://oltdaniel.github.io/dose/tags/</loc>
+    </url>
+    <url>
+        <loc>https://oltdaniel.github.io/dose/tags/getting-started/</loc>
+    </url>
+    <url>
+        <loc>https://oltdaniel.github.io/dose/tags/hello/</loc>
+    </url>
+    <url>
+        <loc>https://oltdaniel.github.io/dose/tags/zola/</loc>
+    </url>
+</urlset>
