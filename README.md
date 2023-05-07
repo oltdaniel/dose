@@ -4,11 +4,13 @@
 
 ## Installation
 
-First download this theme to your `themes` directory:
+First install the theme into the `themes` directory with one of these options:
 
 ```bash
-cd themes
-git clone https://github.com/oltdaniel/dose.git
+# If you work with git: 
+git submodule add https://github.com/oltdaniel/dose.git themes/dose
+# or just do a download:
+git clone https://github.com/oltdaniel/dose.git themes/dose
 ```
 
 and then enable it in your `config.toml`:
