@@ -54,7 +54,7 @@
         <hr text="&copy; Copyright {{ now() | date(format='%Y') }}" />
         <div class="footer-social-media">
             <a id="toggle-theme"></a>
-            <a href="/tags">{{ trans(key="tags", lang=lang) }}</a>
+            <a href="/tags">Tags</a>
             {% if config.extra.social_media %}
             {% for social in config.extra.social_media %}
                 {% if social.rel %}
