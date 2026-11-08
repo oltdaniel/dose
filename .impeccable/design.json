@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-08T14:39:40+02:00",
+  "title": "Design System: Greg",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "#f5f3ed",
+        "tonalRamp": ["#292821", "#46453e", "#625f56", "#807d73", "#9e9a90", "#bbb7ac", "#d7d4cb", "#f5f3ed"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#292821",
+        "tonalRamp": ["#181813", "#292821", "#403f38", "#58574f", "#706f66", "#89877e", "#aaa89e", "#d0cec5"]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#625f56",
+        "tonalRamp": ["#24231e", "#403e37", "#625f56", "#7d7a70", "#99968c", "#b3b0a5", "#cfccc2", "#e8e5dc"]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#d7d4cb",
+        "tonalRamp": ["#292821", "#46453e", "#625f56", "#807d73", "#9e9a90", "#bbb7ac", "#d7d4cb", "#f5f3ed"]
+      },
+      "selection": {
+        "role": "neutral",
+        "displayName": "Selection",
+        "canonical": "#ded8c9",
+        "tonalRamp": ["#292821", "#46443c", "#625f55", "#807c70", "#9e998c", "#bbb6a8", "#ded8c9", "#f5f3ed"]
+      },
+      "focus": {
+        "role": "primary",
+        "displayName": "Warm Focus",
+        "canonical": "#785b36",
+        "tonalRamp": ["#302211", "#49351f", "#634c2e", "#785b36", "#947653", "#b29a76", "#d0bea1", "#eee4d6"]
+      }
+    },
+    "typographyMeta": {
+      "body": {
+        "displayName": "Typewritten Body",
+        "purpose": "Running copy, links, and metadata."
+      },
+      "display": {
+        "displayName": "Site Name",
+        "purpose": "The author's name in the page masthead."
+      },
+      "article-title": {
+        "displayName": "Article Title",
+        "purpose": "The title at the start of an article."
+      },
+      "label": {
+        "displayName": "Supporting Text",
+        "purpose": "Dates, breadcrumbs, and secondary text."
+      }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [
+      {
+        "name": "narrow",
+        "value": "36rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Article Row",
+      "kind": "custom",
+      "refersTo": "article-link",
+      "description": "A full-width text link with an outlined square marker and optional date.",
+      "html": "<a class=\"ds-post-link\" href=\"#\"><span class=\"ds-post-marker\" aria-hidden=\"true\"></span><span class=\"ds-post-title\">An article title</span><time>2026-11-08</time></a>",
+      "css": ".ds-post-link { display: grid; grid-template-columns: 0.45rem minmax(0, 1fr) auto; align-items: baseline; gap: 0.75rem; padding: 0.9rem 0; color: var(--ink); text-decoration: none; } .ds-post-marker { width: 0.4rem; height: 0.4rem; border: 1px solid currentColor; } .ds-post-title { text-decoration: underline; text-underline-offset: 0.2em; } .ds-post-link:hover .ds-post-title { text-decoration-thickness: 2px; } .ds-post-link:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }"
+    },
+    {
+      "name": "Masthead Link",
+      "kind": "nav",
+      "description": "The author's name links back to the homepage.",
+      "html": "<a class=\"ds-site-title\" href=\"/\">Greg</a>",
+      "css": ".ds-site-title { color: var(--ink); font-family: var(--typewriter); font-size: 1.5rem; font-weight: 700; text-decoration: none; } .ds-site-title:hover { text-decoration: underline; text-underline-offset: 0.2em; } .ds-site-title:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "A Quiet Typed Index",
+    "overview": "The site puts the writing first. A warm, steady page and one column of typewritten text replace the previous theme's chips, decorative separators, and theme switch. The layout stays conventional and easy to scan: a name, a heading, article links, and an author note with optional contact links at the bottom. Restraint is the design's defining choice; the interface should recede while the writing and its author remain easy to find.",
+    "keyCharacteristics": [
+      "Warm off-white ground with near-black type.",
+      "Courier Prime used for headings and running text.",
+      "One narrow column, fine rules, and square article markers.",
+      "No shadows, rounded cards, decorative icons, or dark-mode controls."
+    ],
+    "rules": [
+      {
+        "name": "Writing first",
+        "body": "Keep the homepage to a direct, readable list of articles.",
+        "section": "layout"
+      },
+      {
+        "name": "One typewriter voice",
+        "body": "Use Courier Prime for headings and running text.",
+        "section": "typography"
+      },
+      {
+        "name": "No invented links",
+        "body": "Render contact and social links only when real destinations are configured.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do keep article discovery to a plain list of titles and dates.",
+      "Do keep the warm paper ground and typewriter typography consistent.",
+      "Do use semantic links, visible focus, and comfortable line spacing.",
+      "Do add contact or social links only from real site configuration."
+    ],
+    "donts": [
+      "Don't add cards, pills, decorative separators, or unnecessary metadata.",
+      "Don't add a dark theme or a theme switch.",
+      "Don't add imagery or icons unless the content itself requires them.",
+      "Don't use a different font for display text."
+    ]
+  }
+}
