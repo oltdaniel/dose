@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <header>
+    <p><a href="..">..</a>/tags/{{ term.name }}</p>
+    <h4>Tags - {{ term.name }}</h4>
+  </header>
+  <main>
+    {% if lang != lang %}
+    <blockquote>
+    <b>INFO:</b> This is not the default language. There may be articles that are not translated. You can switch back to the default language <a href="/">here</a>.
+    </blockquote>
+    {% endif %}
+    {% for page in term.pages %}
+        <article onclick="redirect('{{ page.permalink | safe }}')">
+            <h3>{{ page.title }}</h3>
+            <time>{{ page.date }}</time>
+            <p>{{ page.description }}</p>
+            <div class="chips">
+                {% if page.translations | length > 1 %}
+                    {% for l in page.translations %}
+                        <span class="lang">{{ l.lang }}</span>
+                    {% endfor %}
+                {% endif %}
+                {% if page.taxonomies.tags and page.taxonomies.tags | length > 0 %}
+                    {% for tag in page.taxonomies.tags %}
+                        <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </article>
+        {% if not loop.last %}
+            <hr />
+        {% endif %}
+    {% endfor %}
+  </main>
+{% endblock content %}

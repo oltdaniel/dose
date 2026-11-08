@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <header>
+    <p><a href="..">..</a>/tags</p>
+    <h4>Tags</h4>
+  </header>
+  <main>
+    <div class="chips">
+    {% for term in terms %}
+      <p onclick="redirect('{{ term.permalink }}')" style="cursor: pointer;">
+        {{ term.pages | length }}x <span class="tag">{{ term.name }}</span>
+      </p>
+    {% endfor %}
+    </div>
+  </main>
+{% endblock content %}
