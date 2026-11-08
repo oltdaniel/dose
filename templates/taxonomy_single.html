@@ -3,14 +3,18 @@
 {% block title %}{{ term.name }} - {{ config.title }}{% endblock %}
 
 {% block content %}
-    <main>
+    <main id="main-content">
         <h1>{{ term.name }}</h1>
+        <ul class="post-list">
         {% for page in term.pages %}
-            <article>
-                <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
-                <time>{{ page.date }}</time>
-                <p>{{ page.description }}</p>
-            </article>
+            <li>
+                <a class="post-link" href="{{ page.permalink | safe }}">
+                    <span class="post-marker" aria-hidden="true"></span>
+                    <span class="post-title">{{ page.title }}</span>
+                    {% if page.date %}<time datetime="{{ page.date | date(format='%Y-%m-%d') }}">{{ page.date | date(format='%Y-%m-%d') }}</time>{% endif %}
+                </a>
+            </li>
         {% endfor %}
+        </ul>
     </main>
 {% endblock content %}

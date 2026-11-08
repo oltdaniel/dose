@@ -3,10 +3,12 @@
 {% block title %}{{ taxonomy.name }} - {{ config.title }}{% endblock %}
 
 {% block content %}
-    <main>
+    <main id="main-content">
         <h1>{{ taxonomy.name }}</h1>
-        {% for term in terms %}
-            <p><a href="{{ term.permalink }}">{{ term.name }}</a> ({{ term.pages | length }})</p>
-        {% endfor %}
+        <ul class="post-list">
+            {% for term in terms %}
+            <li><a class="post-link" href="{{ term.permalink }}"><span class="post-marker" aria-hidden="true"></span><span class="post-title">{{ term.name }}</span><span>{{ term.pages | length }}</span></a></li>
+            {% endfor %}
+        </ul>
     </main>
 {% endblock content %}

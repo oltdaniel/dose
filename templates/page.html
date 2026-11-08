@@ -4,33 +4,32 @@
 {% endblock %}
 {% block page_meta %}
 {% if page.description %}
-    <meta content="{{ page.description | safe | default(value='') | truncate(length=150) }}" name="description"/>
+    <meta content="{{ page.description | truncate(length=150) }}" name="description"/>
 {% endif %}
 {% endblock page_meta %}
 {% block content %}
-    <main class="article-content">
-        <p><a href="..">..</a>/{{ page.slug }}</p>
+    <main class="article-content" id="main-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="{{ config.base_url | safe }}">All writing</a>
+        </nav>
+        <article>
+        <h1>{{ page.title }}</h1>
+        {% if page.date and page.title != "About" %}
+        <p class="post-meta"><time datetime="{{ page.date | date(format='%Y-%m-%d') }}">{{ page.date | date(format='%Y-%m-%d') }}</time></p>
+        {% endif %}
         {% if page.translations | length > 1 %}
-            {% set num_languages = page.translations | length - 1 %}
-            <small>Other language{{ num_languages | pluralize }}:</small>
-            <div class="chips chips-inline">
+            <nav class="translation-links" aria-label="Available languages">
+                Also available:
                 {% for l in page.translations %}
                     {% if l.lang != lang %}
-                        <span class="lang" onclick="redirect('{{ l.permalink | safe }}')">{{ l.lang }}</span>
+                        <a href="{{ l.permalink | safe }}" hreflang="{{ l.lang }}">{{ l.lang }}</a>
                     {% endif %}
                 {% endfor %}
-            </div>
+            </nav>
         {% endif %}
-        <h1>{{ page.title }}</h1>
-        <p>Published: <time>{{ page.date }}</time>{% if page.updated %}, Updated: <time>{{ page.updated }}</time>{% endif %}</p>
-        {% if page.taxonomies.tags and page.taxonomies.tags | length > 0 %}
-            <div class="chips">
-                {% for tag in page.taxonomies.tags %}
-                    <span class="tag">{{ tag }}</span>
-                {% endfor %}
-            </div>
-        {% endif %}
-        <hr />
-        {{ page.content | safe }}
+        <div class="article-body">
+            {{ page.content | safe }}
+        </div>
+        </article>
     </main>
 {% endblock content %}
